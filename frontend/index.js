@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Fetch and display tasks
     function loadTasks() {
-      fetch('/tasks')
+      fetch('http://localhost:3001/tasks')
         .then(response => response.json())
         .then(tasks => {
           taskList.innerHTML = '';
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const text = input.value.trim();
       if (text) {
-        fetch('/tasks', {
+        fetch('http://localhost:3001/tasks', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text })
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Toggle task status
     function toggleTask(id) {
-      fetch(`/tasks/${id}`, { method: 'PUT' })
+      fetch(`http://localhost:3001/tasks/${id}`, { method: 'PUT' })
         .then(() => loadTasks());
     }
   

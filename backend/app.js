@@ -1,10 +1,13 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
-const port = 3000;
+const port = 3001;
 
 // Middleware to parse JSON and serve static files
 app.use(express.json());
 app.use(express.static('public'));
+
+app.use(cors());
 
 // In-memory storage for tasks
 let tasks = [];
